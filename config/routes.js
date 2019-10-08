@@ -24,6 +24,7 @@ module.exports = function(router) {
             }
         });
     });
+
     router.get("/api/headlines", function(req,res){
         var query = {};
         if (req.query.saved){
@@ -32,6 +33,14 @@ module.exports = function(router) {
         
         headlinesController.get(query, function(data){
             res.json(data);
-        })
-    })
+        });
+    });
+
+    router.delete("/api/headlines/:id", function(req,res){
+        var query = {};
+        query._id + req.params.id;
+        headlinesController.delete(query, function(err, data){
+            res.json(data);
+        });
+    });
 }
