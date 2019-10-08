@@ -71,6 +71,17 @@ $(document).ready(function() {
       }
   }
 
+  function handleNoteDelete() {
+      var noteToDelete = $(this).data("_id");
+
+      $.ajax({
+          url: "/api/notes/" + noteToDelete,
+          method: "DELETE"
+      }).then(function(){
+          bootbox.hideAll();
+      });
+  }
+
   function renderEmpty() {
     var emptyAlert = $(
       [
