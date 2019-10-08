@@ -70,4 +70,22 @@ $(document).ready(function() {
     );
     articleContainer.append(emptyAlert);
   }
+
+  function handleArticleSave() {
+      var articleToSave = $(this).parents(".panel").data();
+      articleToSave.saved = true;
+
+      $.ajax({
+          method: "PATCH",
+          url: "/api/headlines",
+          data: articleToSave
+      })
+      .then(function(data) {
+          if (data.ok) {
+            initPage();
+          }
+      });
+  }
+
+  
 });
