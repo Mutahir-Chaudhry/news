@@ -56,6 +56,21 @@ $(document).ready(function() {
     }
   }
 
+  function handleNoteSave(){
+      var noteDate;
+      var newNote = $(".bootbox-body textarea").val().trim();
+
+      if (newNote) {
+          noteData = {
+              _id: $(this).data("article")._id,
+              noteText: newNote
+          };
+          $.post("/api/notes", noteData).then(function() {
+              bootbox.hideAll();
+          });
+      }
+  }
+
   function renderEmpty() {
     var emptyAlert = $(
       [
