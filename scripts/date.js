@@ -1,5 +1,3 @@
-import { format } from "url";
-
 var makeDate = function() {
     var d = new Date();
     var formattedDate = "";
