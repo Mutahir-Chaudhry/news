@@ -13,7 +13,10 @@ module.exports = {
 
             Headline.collection.insertMany(articles, {ordered: false}, function(err, docs){
                 cb(err, docs);
-            })
-        })
+            });
+        });
+    },
+    delete: function(query, cb) {
+        Headline.remove(query, cb);
     }
 }
