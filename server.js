@@ -7,6 +7,8 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 var router = express.Router();
 
+require("./congfig/routes")(router);
+
 app.use(express.static(__dirname + "/public"));
 
 app.engine("handlebars", expressHandlebars({
