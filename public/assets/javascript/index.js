@@ -27,6 +27,30 @@ $(document).ready(function() {
     articleContainer.append(articlePanels);
   }
 
+  function createPanel(article) {
+    var panel = $(
+      [
+        "<div class='panel panel-default'>",
+        "<div class='panel-heading'>",
+        "<h3>",
+        article.headline,
+        "<a class='btn btn-success save'>",
+        "Save Article",
+        "</a>",
+        "</h3>",
+        "</div>",
+        "<div class='panel-body'>",
+        article.summary,
+        "</div>",
+        "</div>"
+      ].join("")
+    );
+
+    panel.data("_id", article._id);
+
+    return panel;
+  }
+
   function renderEmpty() {
     var emptyAlert = $(
       [
